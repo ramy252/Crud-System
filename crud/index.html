@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="container bg-light p-4 rounded shadow-sm">
+    <h2 class="text-center text-primary mb-4">Product CRUD System</h2>
+    <div class="row">
+        <div class="col-12">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="productName" placeholder="Enter product name"
+                oninput="validationName()" onfocus="showValidation('nameValidationList')"
+                onblur="hideValidation('nameValidationList')">
+            <ul id="nameValidationList" class="validation-list">
+                <li id="nameUppercase" class="invalid-check">Starts with an uppercase letter</li>
+                <li id="nameLength" class="invalid-check">Between 3 and 20 characters</li>
+            </ul>
+
+            <label for="productPrice" class="form-label">Product Price</label>
+            <input type="text" class="form-control" id="productPrice" placeholder="Enter product price"
+                oninput="validationPrice()" onfocus="showValidation('priceValidationList')"
+                onblur="hideValidation('priceValidationList')">
+            <ul id="priceValidationList" class="validation-list">
+                <li id="priceValid" class="invalid-check">Valid number</li>
+                <li id="priceGreater" class="invalid-check">Greater than 0</li>
+            </ul>
+
+            <label for="productCategory" class="form-label">Product Category</label>
+            <input type="text" class="form-control" id="productCategory" placeholder="Enter product category"
+                oninput="validationType()" onfocus="showValidation('categoryValidationList')"
+                onblur="hideValidation('categoryValidationList')">
+            <ul id="categoryValidationList" class="validation-list">
+                <li id="categoryAlphabetic" class="invalid-check">Contains only letters</li>
+                <li id="categoryLength" class="invalid-check">Between 3 and 15 characters</li>
+            </ul>
+
+            <label for="productDescription" class="form-label">Product Description</label>
+            <input type="text" class="form-control" id="productDescription" placeholder="Enter product description"
+                oninput="validationDescription()" onfocus="showValidation('descriptionValidationList')"
+                onblur="hideValidation('descriptionValidationList')">
+            <ul id="descriptionValidationList" class="validation-list">
+                <li id="descriptionLength" class="invalid-check">Between 4 and 50 characters</li>
+            </ul>
+
+            <div class="d-grid gap-2 py-3">
+                <button type="button" id="btnAdd" class="btn btn-primary d-block" onclick="addProduct()">Add Product</button>
+                <button type="button" id="btnUpdate" class="btn btn-warning d-none" onclick="updateProduct()">Update
+                    Product</button>
+                <button type="button" id="btnDeleteAll" class="btn btn-danger d-block" onclick="deleteAllProducts()">Delete All
+                    Products</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-bar mt-4 py-4">
+        <input type="search" class="form-control w-75 m-auto" id="inputSearch" oninput="search()"
+            placeholder="Search products">
+    </div>
+
+    <div class="table-responsive ">
+        <table class="table table-dark table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Products will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
